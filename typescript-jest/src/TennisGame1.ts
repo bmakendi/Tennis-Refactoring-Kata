@@ -16,7 +16,7 @@ export class TennisGame1 implements TennisGame {
     else this.m_score2 += 1;
   }
 
-  currentEquality(score: string) {
+  currentEquality() {
     switch (this.m_score1) {
       case 0:
         return "Love-All";
@@ -33,7 +33,7 @@ export class TennisGame1 implements TennisGame {
     let score: string = "";
     let tempScore: number = 0;
     if (this.m_score1 === this.m_score2) {
-      score = this.currentEquality(score);
+      score = this.currentEquality();
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       const minusResult: number = this.m_score1 - this.m_score2;
       if (minusResult === 1) score = "Advantage player1";
