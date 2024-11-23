@@ -29,6 +29,21 @@ export class TennisGame1 implements TennisGame {
     }
   }
 
+  appleSauce(tempScore: number) {
+    switch (tempScore) {
+      case 0:
+        return "Love";
+      case 1:
+        return "Fifteen";
+      case 2:
+        return "Thirty";
+      case 3:
+        return "Forty";
+      default:
+        return "";
+    }
+  }
+
   getScore(): string {
     let score: string = "";
     let tempScore: number = 0;
@@ -47,20 +62,7 @@ export class TennisGame1 implements TennisGame {
           score += "-";
           tempScore = this.m_score2;
         }
-        switch (tempScore) {
-          case 0:
-            score += "Love";
-            break;
-          case 1:
-            score += "Fifteen";
-            break;
-          case 2:
-            score += "Thirty";
-            break;
-          case 3:
-            score += "Forty";
-            break;
-        }
+        score += this.appleSauce(tempScore);
       }
     }
     return score;
