@@ -54,21 +54,15 @@ export class TennisGame1 implements TennisGame {
 
   getScore(): string {
     let score: string = "";
-    let tempScore: number = 0;
     if (this.m_score1 === this.m_score2) {
       return this.currentEquality();
     }
     if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       return this.checkPointDiffAndReturnAdvOrWin();
     }
-    for (let i = 1; i < 3; i++) {
-      if (i === 1) tempScore = this.m_score1;
-      else {
-        score += "-";
-        tempScore = this.m_score2;
-      }
-      score += this.displayPlayerScore(tempScore);
-    }
+    score += this.displayPlayerScore(this.m_score1);
+    score += "-";
+    score += this.displayPlayerScore(this.m_score2);
     return score;
   }
 }
