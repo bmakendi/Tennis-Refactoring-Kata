@@ -48,8 +48,9 @@ export class TennisGame1 implements TennisGame {
     let score: string = "";
     let tempScore: number = 0;
     if (this.m_score1 === this.m_score2) {
-      score = this.currentEquality();
-    } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
+      return this.currentEquality();
+    }
+    if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       const minusResult: number = this.m_score1 - this.m_score2;
       if (minusResult === 1) score = "Advantage player1";
       else if (minusResult === -1) score = "Advantage player2";
