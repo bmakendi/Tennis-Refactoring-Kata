@@ -1,16 +1,12 @@
 import { TennisGame } from "./TennisGame";
 
 class Player {
-  private name: string;
-  private score: number;
+  name: string;
+  score: number;
 
   constructor(name: string) {
     this.name = name;
     this.score = 0;
-  }
-
-  getScore() {
-    return this.score;
   }
 
   didWinPoint(playerName: string) {
@@ -33,7 +29,7 @@ export class TennisGame1 implements TennisGame {
   }
 
   displayScoreEquality() {
-    switch (this.player1.getScore()) {
+    switch (this.player1.score) {
       case 0:
         return "Love-All";
       case 1:
@@ -61,21 +57,20 @@ export class TennisGame1 implements TennisGame {
   }
 
   displayEndgameScore() {
-    const minusResult: number =
-      this.player1.getScore() - this.player2.getScore();
-    if (minusResult === 1) return "Advantage player1";
-    if (minusResult === -1) return "Advantage player2";
-    if (minusResult >= 2) return "Win for player1";
-    return "Win for player2";
+    const minusResult: number = this.player1.score - this.player2.score;
+    if (minusResult === 1) return "Advantage " + this.player1.name;
+    if (minusResult === -1) return "Advantage " + this.player2.name;
+    if (minusResult >= 2) return "Win for " + this.player1.name;
+    return "Win for " + this.player2.name;
   }
 
   getScore(): string {
-    if (this.player1.getScore() === this.player2.getScore()) {
+    if (this.player1.score === this.player2.score) {
       return this.displayScoreEquality();
     }
-    if (this.player1.getScore() >= 4 || this.player2.getScore() >= 4) {
+    if (this.player1.score >= 4 || this.player2.score >= 4) {
       return this.displayEndgameScore();
     }
-    return `${this.displayPlayerScore(this.player1.getScore())}-${this.displayPlayerScore(this.player2.getScore())}`;
+    return `${this.displayPlayerScore(this.player1.score)}-${this.displayPlayerScore(this.player2.score)}`;
   }
 }
