@@ -50,9 +50,13 @@ describe("TennisGame", () => {
       });
     });
 
-    it("should create a new tennis game with chosen names", () => {
+    it("should display the correct name for a win or an advantage", () => {
       const game = new TennisGame1("Bryan", "Paul");
-      expect(game.getScore);
+      game.wonPoint("Bryan");
+      game.wonPoint("Bryan");
+      game.wonPoint("Bryan");
+      game.wonPoint("Bryan");
+      expect(game.getScore()).toEqual("Win for Bryan");
     });
   });
 
