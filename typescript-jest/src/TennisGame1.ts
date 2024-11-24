@@ -53,16 +53,12 @@ export class TennisGame1 implements TennisGame {
   }
 
   getScore(): string {
-    let score: string = "";
     if (this.m_score1 === this.m_score2) {
       return this.currentEquality();
     }
     if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       return this.checkPointDiffAndReturnAdvOrWin();
     }
-    score += this.displayPlayerScore(this.m_score1);
-    score += "-";
-    score += this.displayPlayerScore(this.m_score2);
-    return score;
+    return `${this.displayPlayerScore(this.m_score1)}-${this.displayPlayerScore(this.m_score2)}`;
   }
 }
