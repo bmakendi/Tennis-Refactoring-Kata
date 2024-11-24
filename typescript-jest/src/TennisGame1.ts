@@ -58,10 +58,10 @@ export class TennisGame1 implements TennisGame {
 
   displayEndgameScore() {
     const minusResult: number = this.player1.score - this.player2.score;
-    if (minusResult === 1) return "Advantage player1";
-    if (minusResult === -1) return "Advantage player2";
-    if (minusResult >= 2) return "Win for player1";
-    return "Win for player2";
+    if (minusResult === 1) return "Advantage " + this.player1.name;
+    if (minusResult === -1) return "Advantage " + this.player2.name;
+    if (minusResult >= 2) return "Win for " + this.player1.name;
+    return "Win for " + this.player2.name;
   }
 
   getScore(): string {
